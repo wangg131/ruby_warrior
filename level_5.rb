@@ -7,7 +7,7 @@ class Player
       @health = warrior.health
     end
 
-    if warrior.health < @health
+    if warrior.health < @health # if warrior's current health is less than last turn's health (AKA: getting shot by arrows from afar)
       choices(warrior)
     elsif warrior.health < 20
       warrior.rest!
@@ -23,7 +23,7 @@ class Player
     elsif warrior.feel.enemy? == false
       warrior.walk!
     else
-      attack(warrior)
+      attack(warrior) # isolates the attack so it only happens if it isn't a captive
     end
   end
 
